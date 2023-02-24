@@ -16,9 +16,37 @@ import {
   useColorScheme,
   View,
 } from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
 
+import OpeningScreen from './screen/OpeningScreen';
+import LoginScreen from './screen/LoginScreen';
+import RegisterScreen from './screen/RegisterScreen';
 function App() {
-  return <SafeAreaView></SafeAreaView>;
+  return (
+    <NavigationContainer>
+      {
+        <Stack.Navigator initialRouteName="Opening">
+          <Stack.Screen
+            name="Opening"
+            component={OpeningScreen}
+            options={{header: () => null}}
+          />
+          <Stack.Screen
+            name="LoginScreen"
+            component={LoginScreen}
+            options={{header: () => null}}
+          />
+          <Stack.Screen
+            name="RegisterScreen"
+            component={RegisterScreen}
+            options={{header: () => null}}
+          />
+        </Stack.Navigator>
+      }
+    </NavigationContainer>
+  );
 }
 
 export default App;
