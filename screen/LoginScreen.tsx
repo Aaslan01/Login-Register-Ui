@@ -19,9 +19,7 @@ const LoginScreen = () => {
   const [password, setPassword] = useState('');
   return (
     <SafeAreaView style={[StyleGuide.mainPadding, {paddingVertical: hp(4)}]}>
-      <Texting text={'Login here'} 
-      fontFamily={'Poppins-Bold'}
-      />
+      <Texting text={'Login here'} fontFamily={'Poppins-Bold'} />
       <Texting
         text={"Welcome back you've been missed!"}
         fontFamily={'Poppins-Bold'}
@@ -69,6 +67,12 @@ const LoginScreen = () => {
         marginTop={hp(6)}
         onPress={() => console.log('Testing Test')}
         color={StyleGuide.colors.darkText}
+      />
+      <Texting
+        text="Or continue with"
+        fontSize={FontSize.small}
+        marginTop={hp(6)}
+        onPress={() => console.log('Testing Test')}
       />
     </SafeAreaView>
   );
