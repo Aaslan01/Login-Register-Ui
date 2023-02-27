@@ -74,6 +74,32 @@ const LoginScreen = () => {
         marginTop={hp(6)}
         onPress={() => console.log('Testing Test')}
       />
+      <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+        <TouchableOpacity
+          style={{
+            padding: wp(4),
+            marginHorizontal: wp(1),
+            backgroundColor: StyleGuide.colors.gray,
+          }}>
+          <Text>Google</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            padding: wp(4),
+            marginHorizontal: wp(1),
+            backgroundColor: StyleGuide.colors.gray,
+          }}>
+          <Text>Apple</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            padding: wp(4),
+            marginHorizontal: wp(1),
+            backgroundColor: StyleGuide.colors.gray,
+          }}>
+          <Text>Facebook</Text>
+        </TouchableOpacity>
+      </View>
     </SafeAreaView>
   );
 };
