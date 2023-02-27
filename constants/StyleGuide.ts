@@ -20,6 +20,11 @@ const StyleGuide = {
     lightPrimary: lightBlue,
     gray: gray,
   },
+  mainPadding: {
+    padding: wp(4),
+    backgroundColor: white,
+    flex: 1
+  },
   buttonContainer: {
     width: wp(32),
     borderRadius:10,

@@ -6,8 +6,11 @@ import {
 } from 'react-native-responsive-screen';
 import StyleGuide from '../constants/StyleGuide';
 import FontSize from '../constants/FontSize';
-
+import { useNavigation } from '@react-navigation/native';
+import Texting from '../components/Texting';
 const OpeningScreen = () => {
+
+  const navigation = useNavigation();
   return (
     <SafeAreaView
       style={{
@@ -27,17 +30,7 @@ const OpeningScreen = () => {
         />
       </View>
       <View style={{flex: 1}}>
-        <Text
-          style={{
-            marginTop: hp(4),
-            fontFamily: 'Poppins-SemiBold',
-            fontSize: FontSize.xLarge,
-            color: StyleGuide.colors.primary,
-            paddingHorizontal: wp(10),
-            textAlign: 'center',
-          }}>
-          Discover You Dream Job Here
-        </Text>
+        <Texting text={"Discover You Dream Job Here"}/>
         <Text
           style={{
             marginTop: hp(2),
@@ -58,6 +51,7 @@ const OpeningScreen = () => {
             marginTop: hp(6),
           }}>
           <TouchableOpacity
+          onPress={()=> navigation.push("LoginScreen")}
             style={[
               {
                 backgroundColor: StyleGuide.colors.primary,
@@ -73,6 +67,7 @@ const OpeningScreen = () => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
+                    onPress={()=> navigation.push("RegisterScreen")}
             style={[
               {
                 backgroundColor: StyleGuide.colors.onPrimary,
