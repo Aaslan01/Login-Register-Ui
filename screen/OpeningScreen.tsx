@@ -6,10 +6,9 @@ import {
 } from 'react-native-responsive-screen';
 import StyleGuide from '../constants/StyleGuide';
 import FontSize from '../constants/FontSize';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import Texting from '../components/Texting';
 const OpeningScreen = () => {
-
   const navigation = useNavigation();
   return (
     <SafeAreaView
@@ -30,19 +29,20 @@ const OpeningScreen = () => {
         />
       </View>
       <View style={{flex: 1}}>
-        <Texting text={"Discover You Dream Job Here"}/>
-        <Text
-          style={{
-            marginTop: hp(2),
-            fontFamily: 'Poppins-Regular',
-            fontSize: FontSize.small,
-            color: StyleGuide.colors.text,
-            paddingHorizontal: wp(10),
-            textAlign: 'center',
-          }}>
-          Explore the all exiting job roles based on your interest and study
-          major
-        </Text>
+        <Texting
+          text={'Discover You Dream Job Here'}
+          fontFamily={'Poppins-Bold'}
+        />
+
+        <Texting
+          text={
+            'Explore the all exiting job roles based on your interest and study major'
+          }
+          fontFamily={'Poppins-Regular'}
+          fontSize={FontSize.small}
+          color={StyleGuide.colors.text}
+          paddingHorizontal={wp(10)}
+        />
         <View
           style={{
             flexDirection: 'row',
@@ -51,7 +51,7 @@ const OpeningScreen = () => {
             marginTop: hp(6),
           }}>
           <TouchableOpacity
-          onPress={()=> navigation.push("LoginScreen")}
+            onPress={() => navigation.push('LoginScreen')}
             style={[
               {
                 backgroundColor: StyleGuide.colors.primary,
@@ -67,7 +67,7 @@ const OpeningScreen = () => {
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-                    onPress={()=> navigation.push("RegisterScreen")}
+            onPress={() => navigation.push('RegisterScreen')}
             style={[
               {
                 backgroundColor: StyleGuide.colors.onPrimary,

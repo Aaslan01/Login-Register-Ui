@@ -13,18 +13,22 @@ interface Props {
   color?: string
   paddingHorizontal?:number
   marginTop?: number
+  textAlign?: string
+  onPress?: ()=>void
+  fontFamily?: string
 }
-const Texting: React.FC<Props> = ({text, fontSize, color ,paddingHorizontal, marginTop}) => {
+const Texting: React.FC<Props> = ({text, fontSize, color, fontFamily,paddingHorizontal, marginTop, textAlign, onPress}) => {
   return (
     <View>
       <Text
+      onPress={onPress}
         style={{
           marginTop: marginTop??hp(4),
-          fontFamily: 'Poppins-Bold',
+          fontFamily: fontFamily ?? 'Poppins-SemiBold',
           fontSize: fontSize ?? FontSize.xLarge,
           color: color ?? StyleGuide.colors.primary,
           paddingHorizontal: paddingHorizontal ?? wp(10),
-          textAlign: 'center',
+          textAlign: textAlign ?? 'center',
         }}>
         {text}
       </Text>
