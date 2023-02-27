@@ -1,4 +1,4 @@
-import {View, Text, Image, SafeAreaView} from 'react-native';
+import {View, Text, Image, SafeAreaView, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {
   widthPercentageToDP as wp,
@@ -13,37 +13,79 @@ const OpeningScreen = () => {
       style={{
         backgroundColor: StyleGuide.colors.background,
         flex: 1,
-        padding: wp(3),
+        paddingHorizontal: wp(3),
       }}>
-      <Image
-        style={{
-          margin: wp(4),
-          marginTop: hp(6),
-          height: hp(40),
-          width: wp(80),
-        }}
-        source={require('../assets/images/welcome-img.png')}
-      />
-      <Text
-        style={{
-          fontFamily: 'Poppins-Bold',
-          fontSize: FontSize.xLarge,
-          color: StyleGuide.colors.primary,
-          paddingHorizontal: wp(10),
-          textAlign: 'center',
-        }}>
-        Discover You Dream Job Here
-      </Text>
-      <Text
-        style={{
-          fontFamily: 'Poppins-Regular',
-          fontSize: FontSize.small,
-          color: StyleGuide.colors.text,
-          paddingHorizontal: wp(10),
-          textAlign: 'center',
-        }}>
-        Explore the all exiting job roles based on your interest and study major
-      </Text>
+      <View style={{flex: 1}}>
+        <Image
+          style={{
+            margin: wp(4),
+            marginTop: hp(6),
+            height: hp(40),
+            width: wp(80),
+          }}
+          source={require('../assets/images/welcome-img.png')}
+        />
+      </View>
+      <View style={{flex: 1}}>
+        <Text
+          style={{
+            marginTop: hp(4),
+            fontFamily: 'Poppins-SemiBold',
+            fontSize: FontSize.xLarge,
+            color: StyleGuide.colors.primary,
+            paddingHorizontal: wp(10),
+            textAlign: 'center',
+          }}>
+          Discover You Dream Job Here
+        </Text>
+        <Text
+          style={{
+            marginTop: hp(2),
+            fontFamily: 'Poppins-Regular',
+            fontSize: FontSize.small,
+            color: StyleGuide.colors.text,
+            paddingHorizontal: wp(10),
+            textAlign: 'center',
+          }}>
+          Explore the all exiting job roles based on your interest and study
+          major
+        </Text>
+        <View
+          style={{
+            flexDirection: 'row',
+            paddingHorizontal: wp(3),
+            justifyContent: 'space-evenly',
+            marginTop: hp(6),
+          }}>
+          <TouchableOpacity
+            style={[
+              {
+                backgroundColor: StyleGuide.colors.primary,
+              },
+              StyleGuide.buttonContainer,
+            ]}>
+            <Text
+              style={[
+                {color: StyleGuide.colors.onPrimary},
+                StyleGuide.buttonText,
+              ]}>
+              Login
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={[
+              {
+                backgroundColor: StyleGuide.colors.onPrimary,
+              },
+              StyleGuide.buttonContainer,
+            ]}>
+            <Text
+              style={[{color: StyleGuide.colors.text}, StyleGuide.buttonText]}>
+              Register
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
     </SafeAreaView>
   );
 };
