@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   TextInput,
   TouchableOpacity,
+  Image,
 } from 'react-native';
 import React, {useState} from 'react';
 import Texting from '../components/Texting';
@@ -14,6 +15,7 @@ import {
 } from 'react-native-responsive-screen';
 import FontSize from '../constants/FontSize';
 import InputField from '../components/InputField';
+import Social from '../components/Social';
 const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -68,6 +70,7 @@ const LoginScreen = () => {
         onPress={() => console.log('Testing Test')}
         color={StyleGuide.colors.darkText}
       />
+      {/* Social Login */}
       <Texting
         text="Or continue with"
         fontSize={FontSize.small}
@@ -75,30 +78,18 @@ const LoginScreen = () => {
         onPress={() => console.log('Testing Test')}
       />
       <View style={{flexDirection: 'row', justifyContent: 'center'}}>
-        <TouchableOpacity
-          style={{
-            padding: wp(4),
-            marginHorizontal: wp(1),
-            backgroundColor: StyleGuide.colors.gray,
-          }}>
-          <Text>Google</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            padding: wp(4),
-            marginHorizontal: wp(1),
-            backgroundColor: StyleGuide.colors.gray,
-          }}>
-          <Text>Apple</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{
-            padding: wp(4),
-            marginHorizontal: wp(1),
-            backgroundColor: StyleGuide.colors.gray,
-          }}>
-          <Text>Facebook</Text>
-        </TouchableOpacity>
+        <Social
+          address={require('../assets/images/icons/google.png')}
+          onPress={() => console.log('Google Login')}
+        />
+        <Social
+          address={require('../assets/images/icons/apple.png')}
+          onPress={() => console.log('Apple Login')}
+        />
+        <Social
+          address={require('../assets/images/icons/facebook.png')}
+          onPress={() => console.log('Facebook Login')}
+        />
       </View>
     </SafeAreaView>
   );
