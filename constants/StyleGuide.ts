@@ -8,6 +8,7 @@ import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
+import FontSize from './FontSize';
 const StyleGuide = {
   colors: {
     darkText: dark,
@@ -30,10 +31,21 @@ const StyleGuide = {
     borderRadius:10,
     paddingVertical: hp(1.4),
   },
+  fullButtonContainer:   {
+    marginTop: hp(6),
+    backgroundColor: blue,
+    width: wp(90),
+  },
+  
   buttonText: {
     fontSize: 14,
     fontFamily: 'Poppins-Bold',
     textAlign: 'center',
+  },
+  fullButtonText: {
+    color: white,
+    fontSize: FontSize.medium,
+    fontFamily: 'Poppins-SemiBold',
   },
 };
 

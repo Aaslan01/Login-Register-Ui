@@ -48,20 +48,12 @@ const LoginScreen = () => {
         // onPress={() => navigation.push('LoginScreen')}
         style={[
           StyleGuide.buttonContainer,
-          {
-            marginTop: hp(2),
-            backgroundColor: StyleGuide.colors.primary,
-            width: wp(90),
-          },
+          StyleGuide.fullButtonContainer
         ]}>
         <Text
           style={[
             StyleGuide.buttonText,
-            {
-              color: StyleGuide.colors.onPrimary,
-              fontSize: FontSize.medium,
-              fontFamily: 'Poppins-SemiBold',
-            },
+            StyleGuide.fullButtonText,
           ]}>
           Sign In
         </Text>

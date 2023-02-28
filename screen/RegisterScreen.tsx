@@ -1,9 +1,4 @@
-import {
-  View,
-  Text,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
+import {View, Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import React, {useState} from 'react';
 import Texting from '../components/Texting';
 import StyleGuide from '../constants/StyleGuide';
@@ -36,23 +31,8 @@ const LoginScreen = () => {
       <InputField title={'Confirm Password'} />
       <TouchableOpacity
         // onPress={() => navigation.push('LoginScreen')}
-        style={[
-          StyleGuide.buttonContainer,
-          {
-            marginTop: hp(6),
-            backgroundColor: StyleGuide.colors.primary,
-            width: wp(90),
-          },
-        ]}>
-        <Text
-          style={[
-            StyleGuide.buttonText,
-            {
-              color: StyleGuide.colors.onPrimary,
-              fontSize: FontSize.medium,
-              fontFamily: 'Poppins-SemiBold',
-            },
-          ]}>
+        style={[StyleGuide.buttonContainer, StyleGuide.fullButtonContainer]}>
+        <Text style={[StyleGuide.buttonText, StyleGuide.fullButtonText]}>
           Sign up
         </Text>
       </TouchableOpacity>
@@ -70,7 +50,12 @@ const LoginScreen = () => {
         marginTop={hp(5)}
         onPress={() => console.log('Testing Test')}
       />
-      <View style={{flexDirection: 'row',marginTop:hp(1), justifyContent: 'center'}}>
+      <View
+        style={{
+          flexDirection: 'row',
+          marginTop: hp(1),
+          justifyContent: 'center',
+        }}>
         <Social
           address={require('../assets/images/icons/google.png')}
           onPress={() => console.log('Google Login')}
