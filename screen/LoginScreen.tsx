@@ -16,7 +16,10 @@ import {
 import FontSize from '../constants/FontSize';
 import InputField from '../components/InputField';
 import Social from '../components/Social';
+import { useNavigation } from '@react-navigation/native';
+
 const LoginScreen = () => {
+  const navigation = useNavigation()
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
@@ -67,7 +70,7 @@ const LoginScreen = () => {
         text="Create New Account"
         fontSize={FontSize.small}
         marginTop={hp(6)}
-        onPress={() => console.log('Testing Test')}
+        onPress={() => navigation.push('RegisterScreen')}
         color={StyleGuide.colors.darkText}
       />
       {/* Social Login */}
