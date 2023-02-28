@@ -16,10 +16,10 @@ import {
 import FontSize from '../constants/FontSize';
 import InputField from '../components/InputField';
 import Social from '../components/Social';
-import { useNavigation } from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 
 const LoginScreen = () => {
-  const navigation = useNavigation()
+  const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
