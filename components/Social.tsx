@@ -18,6 +18,7 @@ const Social: React.FC<Props> = ({address, onPress}) => {
         padding: wp(4),
         marginHorizontal: wp(1),
         backgroundColor: StyleGuide.colors.gray,
+        borderRadius: 10
       }}>
       <Image
         style={{height: 30, width: 30}}
