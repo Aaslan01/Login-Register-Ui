@@ -19,6 +19,7 @@ const InputField: React.FC<Props> = ({title}) => {
         // onBlur={() => handleBlur}
         placeholder={title}
         placeholderTextColor={StyleGuide.colors.darkText}
+        secureTextEntry={title === 'Password' ? true : false}
         style={{
           backgroundColor: StyleGuide.colors.lightPrimary,
           fontSize: FontSize.small,

@@ -17,13 +17,14 @@ import FontSize from '../constants/FontSize';
 import InputField from '../components/InputField';
 import Social from '../components/Social';
 import {useNavigation} from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const LoginScreen = () => {
   const navigation = useNavigation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   return (
-    <SafeAreaView style={[StyleGuide.mainPadding, {paddingVertical: hp(4)}]}>
+    <SafeAreaProvider style={[StyleGuide.mainPadding, {paddingVertical: hp(4)}]}>
       <Texting text={'Login here'} fontFamily={'Poppins-Bold'} />
       <Texting
         text={"Welcome back you've been missed!"}
@@ -46,15 +47,8 @@ const LoginScreen = () => {
       />
       <TouchableOpacity
         // onPress={() => navigation.push('LoginScreen')}
-        style={[
-          StyleGuide.buttonContainer,
-          StyleGuide.fullButtonContainer
-        ]}>
-        <Text
-          style={[
-            StyleGuide.buttonText,
-            StyleGuide.fullButtonText,
-          ]}>
+        style={[StyleGuide.buttonContainer, StyleGuide.fullButtonContainer]}>
+        <Text style={[StyleGuide.buttonText, StyleGuide.fullButtonText]}>
           Sign In
         </Text>
       </TouchableOpacity>
@@ -86,7 +80,7 @@ const LoginScreen = () => {
           onPress={() => console.log('Facebook Login')}
         />
       </View>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 

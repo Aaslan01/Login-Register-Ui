@@ -13,29 +13,32 @@ const Stack = createNativeStackNavigator();
 import OpeningScreen from './screen/OpeningScreen';
 import LoginScreen from './screen/LoginScreen';
 import RegisterScreen from './screen/RegisterScreen';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 function App() {
   return (
-    <NavigationContainer>
-      {
-        <Stack.Navigator initialRouteName="Opening">
-          <Stack.Screen
-            name="Opening"
-            component={OpeningScreen}
-            options={{header: () => null}}
-          />
-          <Stack.Screen
-            name="LoginScreen"
-            component={LoginScreen}
-            options={{header: () => null}}
-          />
-          <Stack.Screen
-            name="RegisterScreen"
-            component={RegisterScreen}
-            options={{header: () => null}}
-          />
-        </Stack.Navigator>
-      }
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer>
+        {
+          <Stack.Navigator initialRouteName="Opening">
+            <Stack.Screen
+              name="Opening"
+              component={OpeningScreen}
+              options={{header: () => null}}
+            />
+            <Stack.Screen
+              name="LoginScreen"
+              component={LoginScreen}
+              options={{header: () => null}}
+            />
+            <Stack.Screen
+              name="RegisterScreen"
+              component={RegisterScreen}
+              options={{header: () => null}}
+            />
+          </Stack.Navigator>
+        }
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

@@ -8,10 +8,11 @@ import StyleGuide from '../constants/StyleGuide';
 import FontSize from '../constants/FontSize';
 import {useNavigation} from '@react-navigation/native';
 import Texting from '../components/Texting';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 const OpeningScreen = () => {
   const navigation = useNavigation();
   return (
-    <SafeAreaView
+    <SafeAreaProvider
       style={{
         backgroundColor: StyleGuide.colors.background,
         flex: 1,
@@ -81,7 +82,7 @@ const OpeningScreen = () => {
           </TouchableOpacity>
         </View>
       </View>
-    </SafeAreaView>
+    </SafeAreaProvider>
   );
 };
 
