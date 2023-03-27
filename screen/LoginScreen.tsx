@@ -17,14 +17,23 @@ import FontSize from '../constants/FontSize';
 import InputField from '../components/InputField';
 import Social from '../components/Social';
 import {useNavigation} from '@react-navigation/native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {useForm, Controller} from 'react-hook-form';
 const LoginScreen = () => {
   const navigation = useNavigation();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const {control, handleSubmit, formState: {errors}} = useForm();
+
+  console.log("error", errors);
+  
+
+  const  onSignInPressed = data => {
+    console.log('data', data);
+    // navigation.push('LoginScreen');
+  };
+
   return (
-    <SafeAreaProvider style={[StyleGuide.mainPadding, {paddingVertical: hp(4)}]}>
+    <SafeAreaProvider
+      style={[StyleGuide.mainPadding, {paddingVertical: hp(4)}]}>
       <Texting text={'Login here'} fontFamily={'Poppins-Bold'} />
       <Texting
         text={"Welcome back you've been missed!"}
@@ -35,8 +44,20 @@ const LoginScreen = () => {
         marginTop={hp(2)}
       />
       <View style={{marginTop: hp(2)}} />
-      <InputField title={'Email'} />
-      <InputField title={'Password'} />
+     
+      <InputField
+       name={'email'}
+       placeholder={'Email'} 
+       control={control}
+       rules={{required:true}}
+       />
+      <InputField
+       name={'password'}
+       placeholder={'Password'} 
+       control={control}
+       secureTextEntry
+       />
+      {/* <InputField title={'Password'} /> */}
       <Texting
         text="Forgot your password?"
         textAlign="right"
@@ -46,7 +67,7 @@ const LoginScreen = () => {
         onPress={() => console.log('Testing Test')}
       />
       <TouchableOpacity
-        // onPress={() => navigation.push('LoginScreen')}
+        onPress={handleSubmit(onSignInPressed)}
         style={[StyleGuide.buttonContainer, StyleGuide.fullButtonContainer]}>
         <Text style={[StyleGuide.buttonText, StyleGuide.fullButtonText]}>
           Sign In

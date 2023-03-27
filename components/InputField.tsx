@@ -2,39 +2,59 @@ import {View, Text, TextInput} from 'react-native';
 import React, {useState} from 'react';
 import StyleGuide from '../constants/StyleGuide';
 import FontSize from '../constants/FontSize';
+import {Controller} from 'react-hook-form';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 interface Props {
-  title: string;
+  name: string;
+  placeholder: string;
+  control: any;
+  rules: {};
+  secureTextEntry?: boolean;
 }
 
-const InputField: React.FC<Props> = ({title}) => {
+const InputField: React.FC<Props> = ({
+  placeholder,
+  rules,
+  name,
+  control,
+  secureTextEntry,
+}) => {
   const [isFocused, setIsFocused] = useState(false);
   return (
-    <View>
-      <TextInput
-        // onFocus={() => handleFocus}
-        // onBlur={() => handleBlur}
-        placeholder={title}
-        placeholderTextColor={StyleGuide.colors.darkText}
-        secureTextEntry={title === 'Password' ? true : false}
-        style={{
-          backgroundColor: StyleGuide.colors.lightPrimary,
-          fontSize: FontSize.small,
-          fontFamily: 'Poppins-Regular',
-          borderRadius: 10,
-          paddingVertical: hp(2),
-          paddingHorizontal: wp(4),
-          marginTop: hp(2),
-          borderColor: isFocused
-            ? StyleGuide.colors.primary
-            : StyleGuide.colors.lightPrimary,
-          borderWidth: 1,
-        }}
-      />
-    </View>
+    <Controller
+      control={control}
+      name={name}
+      rules={rules}
+      render={({field: {value, onChange}}) => (
+        <View
+          style={{
+            borderColor: 'black',
+            borderRadius: 3,
+          }}>
+          <TextInput
+            value={value}
+            onChangeText={onChange}
+            placeholder={placeholder}
+            placeholderTextColor={StyleGuide.colors.darkText}
+            secureTextEntry={secureTextEntry}
+            style={{
+              backgroundColor: StyleGuide.colors.lightPrimary,
+              fontSize: FontSize.small,
+              fontFamily: 'Poppins-Regular',
+              borderRadius: 10,
+              paddingVertical: hp(2),
+              paddingHorizontal: wp(4),
+              marginTop: hp(2),
+              borderColor: StyleGuide.colors.primary,
+              borderWidth: 1,
+            }}
+          />
+        </View>
+      )}
+    />
   );
 };
 
