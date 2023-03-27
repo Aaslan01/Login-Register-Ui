@@ -10,14 +10,29 @@ import FontSize from '../constants/FontSize';
 import InputField from '../components/InputField';
 import Social from '../components/Social';
 import {useNavigation} from '@react-navigation/native';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {Controller, useForm} from 'react-hook-form';
 
 const LoginScreen = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+    watch,
+  } = useForm();
+
+  const pwd = watch('password');
+
+  const onSignUpPressed = (data: any) => {
+    console.log('data', data);
+    // navigation.push('LoginScreen');
+  };
+
+  console.log('error Reg', errors);
   const navigation = useNavigation();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   return (
-    <SafeAreaProvider style={[StyleGuide.mainPadding, {paddingVertical: hp(4)}]}>
+    <SafeAreaProvider
+      style={[StyleGuide.mainPadding, {paddingVertical: hp(4)}]}>
       <Texting text={'Create Account'} fontFamily={'Poppins-Bold'} />
       <Texting
         text={'Create an Account so you can explore all the existing jobs'}
@@ -27,11 +42,36 @@ const LoginScreen = () => {
         marginTop={hp(1)}
       />
       <View style={{marginTop: hp(2)}} />
-      <InputField title={'Email'} />
-      <InputField title={'Password'} />
-      <InputField title={'Confirm Password'} />
+      <InputField
+        name={'email'}
+        placeholder={'Email'}
+        control={control}
+        rules={{required: 'Email is required'}}
+      />
+      <InputField
+        placeholder={'Password'}
+        name={'password'}
+        control={control}
+        rules={{
+          required: 'Password is required',
+          minLength: {
+            value: 8,
+            message: 'Minimum length of Characters should be 8',
+          },
+        }}
+        secureTextEntry
+      />
+      <InputField
+        placeholder={'Confirm Password'}
+        name={'confirmPassword'}
+        control={control}
+        rules={{
+          validate: (value: string) => value === pwd || "Password does not match",
+        }}
+        secureTextEntry
+      />
       <TouchableOpacity
-        // onPress={() => navigation.push('LoginScreen')}
+        onPress={handleSubmit(onSignUpPressed)}
         style={[StyleGuide.buttonContainer, StyleGuide.fullButtonContainer]}>
         <Text style={[StyleGuide.buttonText, StyleGuide.fullButtonText]}>
           Sign up
