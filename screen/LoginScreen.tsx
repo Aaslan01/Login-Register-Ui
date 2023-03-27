@@ -21,12 +21,15 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useForm, Controller} from 'react-hook-form';
 const LoginScreen = () => {
   const navigation = useNavigation();
-  const {control, handleSubmit, formState: {errors}} = useForm();
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm();
 
-  console.log("error", errors);
-  
+  console.log('error', errors);
 
-  const  onSignInPressed = data => {
+  const onSignInPressed = data => {
     console.log('data', data);
     // navigation.push('LoginScreen');
   };
@@ -44,19 +47,26 @@ const LoginScreen = () => {
         marginTop={hp(2)}
       />
       <View style={{marginTop: hp(2)}} />
-     
+
       <InputField
-       name={'email'}
-       placeholder={'Email'} 
-       control={control}
-       rules={{required:true}}
-       />
+        name={'email'}
+        placeholder={'Email'}
+        control={control}
+        rules={{required: 'Email is required'}}
+      />
       <InputField
-       name={'password'}
-       placeholder={'Password'} 
-       control={control}
-       secureTextEntry
-       />
+        name={'password'}
+        placeholder={'Password'}
+        control={control}
+        rules={{
+          required: 'Password is required',
+          minLength: {
+            value: 8,
+            message: 'Password should be 8 Characters long',
+          },
+        }}
+        secureTextEntry
+      />
       {/* <InputField title={'Password'} /> */}
       <Texting
         text="Forgot your password?"

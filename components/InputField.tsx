@@ -28,7 +28,7 @@ const InputField: React.FC<Props> = ({
       control={control}
       name={name}
       rules={rules}
-      render={({field: {value, onChange}}) => (
+      render={({field: {value, onChange}, fieldState: { error}}) => (
         <View
           style={{
             borderColor: 'black',
@@ -48,10 +48,13 @@ const InputField: React.FC<Props> = ({
               paddingVertical: hp(2),
               paddingHorizontal: wp(4),
               marginTop: hp(2),
-              borderColor: StyleGuide.colors.primary,
+              borderColor: error ? "red" : StyleGuide.colors.primary,
               borderWidth: 1,
             }}
           />
+          {
+            error && <Text style={{color: 'red', alignSelf: 'stretch'}}>{error.message}</Text>
+          }
         </View>
       )}
     />
